@@ -3,6 +3,7 @@
  * see commented examples below
  */
 
+import "bootstrap"
 // import 'some-node-module';
 // import SomeModule from 'some-node-module';
 
@@ -10,6 +11,6 @@
  * Write any other JavaScript below
  */
 
-+( function() {
++(function () {
   console.log('Hello, UOC!');
-} )();
+})();

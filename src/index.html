@@ -1,25 +1,164 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="es">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no">
-  <link rel="stylesheet" type="text/css" href="./assets/styles/main.scss"><!-- do not remove this line! -->
-  <title>UOC Boilerplate</title>
+
+  <!-- SE VA A HACER REFERENCIA A LA PAGINA PRINCIPAL DE LOS
+  ESTILOS, QUE CONTIENE TODAS LAS IMPORTACIONES DEL RESTO
+  DE LAS PÁGINAS DEL SITIO -->
+  <link rel="stylesheet" type="text/css" href="./assets/styles/main.scss">
+
+  <!-- SE DEFINE EL ICONO QUE VA A APARECER EN LA SOLAPA
+  DE TITULO DE LA PAGINA -->
+  <link rel="icon" href="./assets/images/ZHAOICONO.webp" sizes="32x32" type="image/png">
+
+  <!-- TÍTULO QUE SE PONE EN LA SOLAPA DEL NAVEGADOR -->
+  <title>El huérfano de Zhao</title>
+
 </head>
 
 <body>
-  <img src="assets/images/logo.png" alt="Universitat Oberta de Catalunya" class="uoc-logo">
 
-  <h1><i class="fa fa-university" aria-hidden="true">HOLA, UOC</i></h1>
-  <p>
-  <p>SE HAN MODIFICADO UN TEXTO DE LA PAGINA INDEX.HTML</p>
-  <p>Y SE HA AÑADIDO UN NUEVO PARRAFO A LA MISMA</p>
+  <!-- ENCABEZADO DE LA PAGINA -->
+  <div class="header">
 
-  </p>
+    <div class="header__icon">
+      <a href="./index.html"><img class="images2" src="./assets/images/ICONOMASCARA.webp" alt="icono página" /></a>
+      <a href="./index.html"><img class="images2" src="./assets/images/ZHAODIBUJO.webp"
+          alt="dibujo de máscara especial" /></a>
+    </div>
+    <div class="header__image">
+      <!-- NO SE PONE NADA, SOLAMENTE PARA SEPARAR LA ZONA DE ICONOS DE LA DE MENÚ -->
+    </div>
+    <div class="header__menu">
+      <ul>
 
-  <script src="./assets/scripts/main.js"></script><!-- do not remove this line! -->
+        <!-- MENU GENERAL PARA NAVEGAR POR TODAS LAS PÁGINAS DEL SITIO
+        LAS REFERENCIAS SE HACEN CON TRAYECTORIAS RELATIVAS RESPECTO A LA
+        RAIZ DEL SITIO -->
+        <li><a href="./index.html">Inicio</a></li>
+        <li><a href="./miembros.html">Miembros</a></li>
+        <li><a href="./informacion.html">Información</a></li>
+        <li><a href="./especial.html">Especial</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="body">
+
+    <!-- CUERPO DE LA PAGINA -->
+    <div class="body__imageIzq"></div>
+
+    <div class="body__image">
+
+      <div class="body__imageCard">
+
+        <!-- SE ESTABLECEN DOS CLASES PARA LA IMAGEN
+        DE ESTA MANERA MEDIANTE UNA CLASE PUEDO REALIZAR UN
+        TRATAMIENTO DE POSICIONAMIENTO EN LA GRID, Y MEDIANTE
+        LA OTRA CLASE (images) PUEDE ESTABLECER QUE LA IMAGEN
+        SE CENTRE Y ADEMAS SEA RESPONSIVA DE UNA MANERA MUY COMODA -->
+
+        <img class="body__imageCardBodyImg images1" src="./assets/images/ZHAOPRINCIPAL.webp" alt="foto central zhao">
+      </div>
+
+    </div>
+    <div class="body__imageDch"></div>
+
+    <div class="body__titleIzq"></div>
+    <div class="body__title">
+
+      <!-- COMO SUCEDE CON LA IMAGEN ANTERIOR DEL CUERPO
+      PRINCIPAL DE LA PÁGINA -->
+      <div class="body__titleCard">
+        <img class="body__titleCardImg images1" src="./assets/images/textohuerfano2.webp" alt="Texto titulo cuerpo">
+      </div>
+
+    </div>
+    <div class="body__titleDch"></div>
+
+    <div class="body__linkstIzq"></div>
+    <div class="body__links">
+
+      <p>Aquí están los <a href="especial.html">LINKS</a> del cuerpo de página</p>
+
+    </div>
+    <div class="body__linkstDch"></div>
+  </div>
+
+  <!-- PIE DE LA PAGINA   -->
+
+  <div class="footer">
+
+    <div class="footer__contactIzq"></div>
+    <div class="footer__contact">
+
+      <p>Se puede poner aquí todo tipo de textos que sean <a href="especial.html">opciones</a> de contactos</p>
+
+    </div>
+    <div class="footer__contacttDch"></div>
+
+    <div class="footer__menu">
+      <div class="footer__menuIzq">
+        <!-- IMAGENES QUE SE ENCUENTAN A LA IZQUIERDA DEL MENU DEL PIE -->
+        <img src="./assets/images/ICONOMASCARA.webp" alt="icono página" width="60px" height="60px" />
+        <img src="./assets/images/ZHAODIBUJO.webp" alt="dibujo de máscara especial" width="60px" height="60px" />
+      </div>
+      <div class="footer__menuCenter">
+        <!-- SE ESTABLECE EL MUENU DEL PIE MEDIANTE UN COMPONENTE BOOTSRAP (NAV)  -->
+        <ul class="nav justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="miembros.html">Miembros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="informacion.html">Información</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="especial.html">Especial</a>
+          </li>
+        </ul>
+
+      </div>
+      <div class="footer__menuNet">
+        <!-- ZONA QUE ESTA A LA DERECHA DEL MENÚ DEL PIE Y QUE ETÁ ORIENTADA
+        AL ACCESO MEDIANTE LOS ICONOS CORRESPONDIENTES A LAS REDES SOCIALES -->
+        <a href="https://twitter.com/?lang=es">
+          <img src="./assets/images/twitter.webp" alt="Twitter" />
+        </a>
+        <a href="https://www.facebook.com/">
+          <img src="./assets/images/faceboock.webp" alt="faceboock" />
+        </a>
+        <a href="https://www.instagram.com/?hl=es">
+          <img src="./assets/images/instagram.webp" alt="instagram" />
+        </a>
+        <a href="https://www.youtube.com/?gl=ES&hl=es">
+          <img src="./assets/images/youtube.webp" alt="youtube" />
+        </a>
+
+      </div>
+    </div>
+
+    <div class="footer__companyIzq">
+      <img src="./assets/images/logo.png" alt="logitopo UOC" width="180px" height="50px">
+    </div>
+    <div class="footer__company">
+      This wireframe has been created exclusively for its use within the “HTML and CSS Tools II” course at the UOC’s
+      Master Program in Web App and Website Development. Its reproduction and other uses are not authorized. © April
+      2020 - Jordi Tarrida Checa and Universitat Oberta de Catalunya -Autor sitio: JAVIER ANTÓN MORAL
+    </div>
+    <div class="footer__companyDch">
+
+    </div>
+  </div>
+
+  </div>
+
 </body>
 
 </html>

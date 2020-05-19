@@ -1,0 +1,154 @@
+
+/* 
+SE ESPECIFICAN QUE TODAS LAS IMAGENES QUE APARECEN EN ESTA
+PANTALLA  SEAN UN 100% DEL TAMAÑO ORIGINAL, SE ESPECIFICA QUE
+SE TRATEN EN BLOQUE PUESTO QUE POR DEFECTO SON ELEMENTOS INLINE.
+AL TRATARSE COMO BLOQUE SE PUEDE REALIZAR UNA ALINEACIÓN 
+HORIZONTAL EN SU CONTENEDOR */
+.imagesInf1{
+  width: 100%;
+  display: block;
+  margin: auto;
+}
+
+.imagesInf2{
+  width: 100%;
+  display: block;
+  margin: auto;
+  min-width: 30%;
+
+  @media (max-width: 600px) {
+    .imagesInf2{
+      min-width: 60%;
+      width: 60%;
+      margin: auto;
+    }
+  }
+}
+
+.normalFont{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1em;
+  // font-weight: bold;
+}
+
+.mediumFont{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.3em;
+  // font-weight: bold;
+}
+
+.largeFont{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5em;
+  // font-weight: bold;
+}
+
+.gridBlog {
+    display: grid;
+    grid-template-columns: 0.25fr 1.4fr 1fr 1fr 0.25fr;
+    grid-gap: 10px;
+    background:$bgPageInf;
+    font-size: 30px;
+  }
+
+  .gridBlog__imageSup {
+    grid-column: 1 / 6;
+
+    .gridBlog__imageSupImg{
+      /* PARA HACER DE UNA MANERA RÁPIDA QUE LAS IMAGENES SEAN RESPONSIVAS
+      SIN NECESAIDAD DE UTILIZAR MEDIA QUERY NI LA ETIQUETA PICTURE CON SU
+      SUBETIQUETA SOURCES Y SUS ATRIBUTOS SRCSET Y MEDIA. ESTO CONSIQUE
+      QUE LA FOTO VAYA CREACIENDO AUTOMATICAMENTE A MEDIDA QUE LA 
+      PANTALLA DEL DISPOSITVO SEA MAS GRANDE */
+      max-width: 100%;
+    }
+  }
+
+  .gridBlog__textSupIzq {
+    grid-column: 1;
+  }
+  
+  .gridBlog__textSup {
+    grid-column: 2/5;
+    padding-left: 10em;
+    padding-right: 10em;
+    
+  }
+  
+  .gridBlog__textSupDch {
+    grid-column: 5;
+  }
+
+    
+  .gridBlog__listIzq {
+    grid-column: 1;
+  }
+  
+  .gridBlog__list {
+    grid-column: 2/5;
+    padding-left: 10em;
+    padding-right: 10em;
+  }
+  
+  .gridBlog__listDch {
+    grid-column: 5;
+  }
+  
+  .gridBlog__columIzq {
+    grid-column: 1;
+  }
+  
+  .gridBlog__columTextIzq {
+    grid-column: 2;
+    padding-left: 10em;
+  }
+  
+  .gridBlog__columTextDch {
+    grid-column: 3/5;
+    padding-right: 10em;
+  }
+  
+  .gridBlog__columDch {
+    grid-column: 5;
+  }
+
+  .gridBlog__imageInfIzq {
+    grid-column: 1;
+  }
+  
+  .gridBlog__imageInf {
+    grid-column: 2/5;
+
+    .gridBlog__imageInfImg{
+      max-width: 100%;
+    }
+  }
+  
+  .gridBlog__imageInfDch {
+    grid-column: 5;
+  }
+
+  .gridBlog__textInfIzq {
+    grid-column: 1;
+  }
+  
+  .gridBlog__textInf {
+    grid-column: 2/5;
+    padding-left: 10em;
+    padding-right: 10em;
+  }
+  
+  .gridBlog__textInfDch {
+    grid-column: 5;
+  }
+
+  
+ 
+  
+  
+  
+ 
+  
+  
+  

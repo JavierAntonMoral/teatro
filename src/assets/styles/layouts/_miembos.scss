@@ -1,0 +1,38 @@
+.pageTitle{
+    color:white;
+    text-shadow: 4px 4px 4px black;
+    text-align: center;
+}
+
+
+.flexCont {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: $bgPage;
+  }
+  
+  .flexCont > div {
+    
+    margin: 10px;
+    text-align: center;
+    line-height: 25px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .card{
+    align-items: center;
+    background: $bgPage;
+    border-radius: 25px;
+    box-shadow: 4px 3px 5px black;
+    color: white;
+    max-width: 35em;
+    text-align: center;
+    text-shadow: 2px 2px 2px black;
+  }
+
+  .card > img{
+      width: 250px;
+      height: 200px;
+  }

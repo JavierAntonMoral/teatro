@@ -6,21 +6,29 @@
 
 @import "@fortawesome/fontawesome-free/css/all.css";
 
+
+
 /**
  * Import npm dependencies
  * see: https://en.parceljs.org/module_resolution.html
  * see commented examples below
  */
 
+ @import "~bootstrap/scss/bootstrap.scss";
+
 // @import "some-node-module";
 // @import "@some-company/some-node-module";
 
-/**
+/*
  * Import layouts
  * It's a best practice to use a partial for each page
  */
 
-@import "layouts/home";
+@import "./layouts/home";
+
+@import "./layouts/miembos";
+
+@import "./layouts/informacion";
 
 /**
  * Do NOT include anything else in this file!

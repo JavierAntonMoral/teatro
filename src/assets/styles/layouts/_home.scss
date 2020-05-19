@@ -1,21 +1,299 @@
+
 body {
-  margin: 0;
-  padding: 30px;
+  /* USO DE VARIABLES QUE DEFINEN COLORES
+  Y TIPOS DE CONJUNTO DE FUENTES
+  */
+  color: $uoc-corporate;
   font-family: $font-family-sans-serif;
-  background-color: $uoc-bg;
-  color: $uoc-corporate;
+  margin: 0;
+  padding: 0;
+  background: $bgPage;
 }
 
-.uoc-logo {
+/* 
+SE ESPECIFICAN QUE TODAS LAS IMAGENES QUE APARECEN EN ESTA
+PANTALLA SEAN UN 50% DEL TAMAÑO ORIGINAL, ADEMÁS SE ESTABLECE QUE
+SE TRATEN EN BLOQUE PUESTO QUE POR DEFECTO SON ELEMENTOS INLINE.
+AL TRATARSE COMO BLOQUE SE PUEDE REALIZAR UNA ALINEACIÓN 
+HORIZONTAL EN SU CONTENEDOR COSA QUE NO SE PUEDE HACER CON
+ELEMENTO INLINE*/
+.images1{
   display: block;
-  margin-bottom: 20px;
-  max-width: 300px;
-  height: auto;
+  margin: auto;
+  max-width: 40%;
+  width: 40%;
+ 
 }
 
-.uoc-title {
-  font-family: $font-family-serif;
-  font-size: 36px;
-  font-weight: 700;
-  color: $uoc-corporate;
+.images2{
+  width: 10%;
+  max-width: 10%;
+  min-width: 10%;
+  // display: block; // SE QUITA POR QUE SI NO CADA IMAGEN OCUPA
+  // UNA LINEA
+  margin: auto;
+
+  @media (max-width: 600px) {
+    .images2{
+      min-width: 30%;
+      width: 20%;
+      margin: auto;
+    }
+  }
+ 
+}
+
+// SE VA A UTILIZAR UN ESTILO DE ANIDAMIENTO TIPICO DE SASS
+.header__menu ul {
+  font-weight: bold;
+  font-size: 1.5em;
+  list-style-type: none; // SE QUITA EL ESTILO DE LAS LISTAS NO NUMERADAS
+  margin: auto;
+  overflow: hidden;
+  padding: 0;
+
+  li {   
+    float: left;
+  }
+  li a {
+    color: white;
+    display: block;
+    padding: 14px 16px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 10px 5px 5px black;
+  }
+  li a:hover {
+    background: $bgMenuSel;
+    border-radius: 12px;
+  }
+  li a:hover:not(.active) {
+    background-color: #111;
+    color:darken($color: #f3d9f1, $amount: 0)
+  }
+  
+  @media screen and (max-width: 600px) {
+    /* CUANDO EL SITIO SE VE EN UN DISPOSITIVO CUYO ANCHO DE
+    PANTALLA MAXIMO SEA DE 600 pixeles, EL MENU SE VA A 
+    DESPLEGAR VERTICALMENTE
+    */
+    li.right, 
+    li {float: none;}
+  }
+}
+
+// SOLAMENTE PARA LOS NAVEGADORES QUE SOPORTAN GRID LAYOUT
+@supports(display: grid)
+{
+
+// SE VA A ESTABLECER UNA REJILLA PARA EL ENCABEZADO
+.header {
+  display: grid;
+  grid-gap: 10px; // DISTANCIA DE SEPARACION ENTRE ELEMENTOS DE LA REJILLA
+  background: $bgPage; // USO DE VARIABLE PARA EL FONDO
+  padding: 10px;
+  text-align: center;
+
+  .header__icon {
+    grid-column: 1; 
+    grid-row: 1;
+    text-align: left;
+  }
+  
+  // SE PONE UNA IMAGEN COMO LOGITIPO
+  .header__image {
+    grid-column: 2;
+    grid-row: 1 ;
+    text-align: left;
+  }
+  
+  .header__menu {
+    // EL MENÚ VA A IR DESDE LA LINEA TRES HASTA LA CUATRO
+    grid-column: 3 / 4; 
+    grid-row: 1 ;
+    text-align: right;
+  }
+}
+
+// PARA LA CONSTRUCCIÓN DEL CUERPO TAMBIEN SE USA UNA REJILLA
+
+.body {
+  background: $bgHeader;
+  color:white;
+  display: grid;
+  font-size: 1,8em;
+  text-align: center;
+ 
+   .body__imageIzq {
+    grid-column: 1;
+    grid-row: 1 ;
+  }
+
+  .body__image {
+    grid-column: 2;
+    grid-row: 1;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+    .body__imageCardBodyImg{
+      /* PERMITE HACER LA IMAGEN RESPONSIVA PARA
+      CUALQUIER PANTALLA DE CUALQUIER DISPOSITIVO
+      SIN UTILIZAR TECNICAS SOFISTICADAS, QUE EN 
+      OTRA PARTE DE ESTE SITIO USARO PARA PRACTICAR */
+      // max-width: 100%;
+    }
+  }
+  
+
+  .body__imageDch {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .body__titleIzq{
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .body__title{
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .body__titleDch{
+    grid-column: 3;
+    grid-row: 2;
+  }
+
+  .body__linksIzq{
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .body__links{
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  .body__linksDch{
+    grid-column: 3;
+    grid-row: 3;
+  }
+}
+
+
+.footer{
+  display: grid;
+  background: $bgFooter;
+  color: white;
+  text-align: center;
+  padding: 10px;
+
+  .footer__contactIzq{
+    grid-column: 1;
+    grid-row: 1;
+  }
+  
+  .footer__contact{
+    grid-column: 2;
+    grid-row: 1;
+   
+  }
+  
+  .footer__contactDch{
+    grid-column: 3;
+    grid-row: 1;
+  }
+  
+  .footer__menu{
+    display: grid;
+    background: $bgFooter;
+    grid-column: 1 / span 3;
+    grid-row: 2;
+    padding: 10px;
+    text-align: center;
+    text-shadow: 3px 3px 3px black;
+  
+    .footer__menuIzq{
+      grid-column: 1;
+      grid-row: 1;
+      text-align: left;
+    }
+  
+    .footer__menuCenter{
+      grid-column: 2;
+      grid-row: 1;
+      font-size: 2em;
+    }
+  
+    .footer__menuNet{
+      grid-column: 3;
+      grid-row: 1;
+
+      a > img{
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+  
+  .footer__companyIzq{
+    grid-column: 1;
+    grid-row: 3;
+  }
+  
+  .footer__company{
+    grid-column: 2;
+    grid-row: 3;
+    text-shadow: 1px 1px 2px black;
+  }
+  
+  .footer__companyDch{
+    grid-column: 3;
+    grid-row: 3;
+  }
+}
+
+}
+
+
+
+//  INSTRUCCIONES DE ANIMACIONES PARA LA PAGINA PORTADA
+
+.body__imageCard{
+  animation-duration: 3s;
+  animation-name: slidein2;
+}
+
+@keyframes slidein2 {
+  from {
+    margin-top: 100%;
+    margin-left: -50%;
+    width: 200%
+  }
+
+  to {
+    margin-top: 0%;
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+.body__titleCard{
+  animation-duration: 3s;
+  animation-name: slidein3;
+}
+
+@keyframes slidein3 {
+  from {
+    margin-top: -200%;
+    margin-left: -50%;
+    width: 200%
+  }
+
+  to {
+    margin-top: 0%;
+    margin-left: 0%;
+    width: 100%;
+  }
 }
