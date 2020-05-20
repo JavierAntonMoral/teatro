@@ -1,4 +1,26 @@
 
+
+/* SE VA A CREAR UNA CLASE PLACEHOLDER, QUE HACE LAS VECES
+DE CLASE DE CUALQUIER LENGUAJE DE PROGRAMACIÓN, ES DECIR,
+ES POSIBLE DESPUES EN CUALQUIER REGLA, HEREDAR TODO LO
+QUE COMPONE ESTA CLASE */
+
+  %rellenos{
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+/* AHORA SE VA A DECLARAR UN MIXINS PARA PODER
+REUTILIZAR PROPIEDADES EN MULTIPLES REGLAS */
+  @mixin rellenoArribaAbajo($valor) {
+    /* AL MIXIN SE LE PASA UN PARAMETRO QUE
+    EN EL CUERPO SE VA A USAR PARA EL CALDULO DEL
+    VALOR DE UNA PROPIEDAD MEDIANTE EL USO DE 
+    OPEARADORES */
+    padding-top: 10px + $valor;
+    padding-bottom:10px + $valor;
+  }
+
 /* 
 SE ESPECIFICAN QUE TODAS LAS IMAGENES QUE APARECEN EN ESTA
 PANTALLA  SEAN UN 100% DEL TAMAÑO ORIGINAL, SE ESPECIFICA QUE
@@ -17,6 +39,9 @@ HORIZONTAL EN SU CONTENEDOR */
   margin: auto;
   min-width: 30%;
 
+  /* SE REALIZA UNA MEDIA QUERY PARA SOLAMENTE
+  CUANDO EL ANCHO MAXIMO DEL DISPOSITIO EN EL
+  QUE SE ESTE VIENDO ESTA PÁGINA ES DE 600 PX */
   @media (max-width: 600px) {
     .imagesInf2{
       min-width: 60%;
@@ -26,30 +51,108 @@ HORIZONTAL EN SU CONTENEDOR */
   }
 }
 
+// ESTILOS PARA LAS FUENTES
+
+.smallFont{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.6rem;
+}
+
 .normalFont{
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.1em;
-  // font-weight: bold;
+  font-size: 2rem;
 }
 
 .mediumFont{
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.3em;
-  // font-weight: bold;
+  font-size: 2.2rem;
 }
 
 .largeFont{
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.5em;
-  // font-weight: bold;
+  font-size: 2.8rem;
 }
+
+// ESTILOS PARA LAS LISTAS
+
+.listNum{
+  /* SE VA A QUITAR EL ESTILO PREDEFINIDO DE LAS LISTAS
+  NUMERADAS, PARA PODER DEFINIR UNO NUEVO */
+  list-style-type: none;
+  /* SE CREA UN NUEVO OBJETO QUE SE VA A USAR COMO
+  EL FUTURO CONTADOR DE LA LISTA NUMERADA.
+  ADEMAS SE ESPECIFICA QUE SIEMPRE EL CONTADOR
+  EMPIECE DESDE EL PRINCIPIO */
+  counter-reset: lista-personalizada;
+  margin: 0;
+}
+
+.listNum li{
+  position: relative;
+  line-height: 30px;
+  padding-left: 80px;
+  padding-right: 80px;
+  font-weight: bold;
+}
+
+/* SE VAN A DEFINIR TODAS LAS CARACTERISTICAS
+DE TODO LO QUE ESTÉ DELANTE DE LA LISTA, ES
+DECIR, LAS VIÑETAS O NÚMEROS */
+.listNum li:before{
+  /* SE ESTABLECE QUE EL OBJETO CREADO
+  ANTERIORMENTE lista-personalizada SEA UN
+  NUEVO CONTADOR */
+  content: counter(lista-personalizada);
+  /* SE DEFINE QUE SE PRODUZCA UN 
+  INCREMENTO DEL CONTADOR */
+  counter-increment: lista-personalizada;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: bold;
+  padding: 10px 15px 5px 15px;
+  background: rgb(0, 140, 255);
+  color: white;
+  height: 45px;
+  width: 45px;
+  // EL FONDO VA A SER CIRCULAR
+  border-radius: 50%; 
+}
+
+.listParr{
+
+  /* SE VA A INVOCAR A UN MIXINS QUE SE HA DECLARADO
+  EN EL PRINCIPIO DE ESTE FICHERO, AL QUE SE LE PASA UN
+  VALOR COMO PARÁMETRO, ESTE VALOR SE INCREMENTA
+  TANTO AL RELLENO SUPERIOR COMO INFERIOR AÑADIENDOLE
+  10, POR LO QUE AL FINAL ESTOS RELLENOS SERAN DE
+  15 PX. NO ES UN EJEMPLO EXCESIVAMENTE UTIL, PERO
+  SE MUESTRA EL USO DE LOS MIXINS */
+  @include rellenoArribaAbajo(5);
+  // padding-top: 15px;
+  // padding-bottom: 15px;
+  font-weight: normal;
+}
+
+ // SE DEFINE LA ESTRUCTURA PRINCIPAL DE LA PAGINA
 
 .gridBlog {
     display: grid;
-    grid-template-columns: 0.25fr 1.4fr 1fr 1fr 0.25fr;
-    grid-gap: 10px;
+
+    /* SE HAN DEFINIDO UN TOTAL DE CINCO COLUMNAS.
+    LA PRIMERA Y LA ULTIMA SON LAS QUE TIENEN UN
+    ANCHO INFERIOR EN CONCRETO UNA TERCERA PARTE DEL ANCHO DE
+    LAS DEMAS COLUMNAS. LAS TRES COLUMNAS CENTRALES TIENEN
+    EL MISMO ANCHO, PERO DESPUES VOY A UNIR LA SEGUNDA COLUMNA
+    CON LA TERCERA, QUEDANDO ENTONCES UNA COLUMNA NUEVA CUYO
+    ANCHO ES EL DOBLE DE LA ANTERIOR */
+    grid-template-columns: 0.3fr 1fr 1fr 1fr 0.3fr;
+    /* SE DEFINE EL ESPACIO DE SEPARACIÓN ENTRE LAS 
+    COLUMNAS Y LAS FILAS DE TODA LA REJILLA */
+    grid-gap: 20px;
     background:$bgPageInf;
-    font-size: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   .gridBlog__imageSup {
@@ -67,32 +170,40 @@ HORIZONTAL EN SU CONTENEDOR */
 
   .gridBlog__textSupIzq {
     grid-column: 1;
+    padding-bottom: 30px;
   }
   
   .gridBlog__textSup {
     grid-column: 2/5;
-    padding-left: 10em;
-    padding-right: 10em;
-    
+    /* SE VA A INCLUIR TODO LO DECLARADO EN LA CLASE
+    PLACEHOLDER, QUE SE CREO AL PRINCIPIO DE ESTE
+    FICHERO. ES COMO SI ESTA REGLA HEREDASE LA CLASE
+    %relleno */
+    @extend %rellenos;
+    padding-bottom: 30px;
   }
   
   .gridBlog__textSupDch {
     grid-column: 5;
+    padding-bottom: 30px;
   }
 
-    
   .gridBlog__listIzq {
     grid-column: 1;
+    padding-bottom: 30px;
   }
   
   .gridBlog__list {
     grid-column: 2/5;
-    padding-left: 10em;
-    padding-right: 10em;
+    @extend %rellenos;
+    // padding-left: 12%;
+    // padding-right: 12%;
+    padding-bottom: 30px;
   }
   
   .gridBlog__listDch {
     grid-column: 5;
+    padding-bottom: 30px;
   }
   
   .gridBlog__columIzq {
@@ -101,24 +212,29 @@ HORIZONTAL EN SU CONTENEDOR */
   
   .gridBlog__columTextIzq {
     grid-column: 2;
-    padding-left: 10em;
+    padding-left: 28%;
+    padding-bottom: 30px;
   }
   
   .gridBlog__columTextDch {
     grid-column: 3/5;
-    padding-right: 10em;
+    padding-right: 12%;
+    padding-bottom: 30px;
   }
   
   .gridBlog__columDch {
     grid-column: 5;
+    padding-bottom: 30px;
   }
 
   .gridBlog__imageInfIzq {
     grid-column: 1;
+    padding-bottom: 30px;
   }
   
   .gridBlog__imageInf {
     grid-column: 2/5;
+    padding-bottom: 30px;
 
     .gridBlog__imageInfImg{
       max-width: 100%;
@@ -127,20 +243,24 @@ HORIZONTAL EN SU CONTENEDOR */
   
   .gridBlog__imageInfDch {
     grid-column: 5;
+    padding-bottom: 30px;
   }
 
   .gridBlog__textInfIzq {
     grid-column: 1;
+    padding-bottom: 30px;
   }
   
   .gridBlog__textInf {
     grid-column: 2/5;
     padding-left: 10em;
     padding-right: 10em;
+    padding-bottom: 30px;
   }
   
   .gridBlog__textInfDch {
     grid-column: 5;
+    padding-bottom: 30px;
   }
 
   

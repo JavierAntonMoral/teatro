@@ -3,7 +3,6 @@ body {
   /* USO DE VARIABLES QUE DEFINEN COLORES
   Y TIPOS DE CONJUNTO DE FUENTES
   */
-  color: $uoc-corporate;
   font-family: $font-family-sans-serif;
   margin: 0;
   padding: 0;
@@ -29,11 +28,12 @@ ELEMENTO INLINE*/
   width: 10%;
   max-width: 10%;
   min-width: 10%;
-  // display: block; // SE QUITA POR QUE SI NO CADA IMAGEN OCUPA
-  // UNA LINEA
   margin: auto;
 
   @media (max-width: 600px) {
+    /* CUANDO LA PAGINA SE VE EN UN DISPOSITIVO DE
+    COMO MAXIMO 600 PX, LA IMAGEN VA A CAMBIAR
+    DE CARACTERISTICAS */
     .images2{
       min-width: 30%;
       width: 20%;
@@ -144,7 +144,6 @@ ELEMENTO INLINE*/
     }
   }
   
-
   .body__imageDch {
     grid-column: 3;
     grid-row: 1;
@@ -197,7 +196,6 @@ ELEMENTO INLINE*/
   .footer__contact{
     grid-column: 2;
     grid-row: 1;
-   
   }
   
   .footer__contactDch{
@@ -230,6 +228,11 @@ ELEMENTO INLINE*/
       grid-column: 3;
       grid-row: 1;
 
+      /* A LAS IMAGENES QUE SE ENCUENTRAN
+      DENTRO DEL MENÚ DEL PIE ORIENTADO
+      A MOSTRAR LOS ICONOS DE LAS REDES
+      SOCIALES, TODOS LOS ICONOS VAN A TENER
+      ESTAS MEDIDAS */
       a > img{
         width: 50px;
         height: 50px;
@@ -256,10 +259,10 @@ ELEMENTO INLINE*/
 
 }
 
-
-
 //  INSTRUCCIONES DE ANIMACIONES PARA LA PAGINA PORTADA
 
+/* LA IMAGEN PRINCIPAL DE LA PAGINA VA A MOVERSE DE
+ABAJO A ARRIBA */
 .body__imageCard{
   animation-duration: 3s;
   animation-name: slidein2;
@@ -278,6 +281,9 @@ ELEMENTO INLINE*/
     width: 100%;
   }
 }
+
+/* LA IMAGEN QUE SUPONE EL TITULO DE ESTA
+PAGINA VA A MOVERSE DE ARRIBA A ABAJO */
 
 .body__titleCard{
   animation-duration: 3s;

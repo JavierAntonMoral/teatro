@@ -1,0 +1,31 @@
+.titlePage{
+    font-size: 2em;
+    color:white;
+    text-shadow: 3px 3px 3px black;
+    text-align: center;
+}
+
+// ESTILOS PARA EL TEXTO DE LOS PANELES DEL ACORDEON
+
+.collapseTitle{
+    font-size: 1.5em;
+    color:deepskyblue;
+    text-shadow: 3px 3px 3px black;
+}
+
+// ESTILOS PARA EL BOTON DEL FORMULARIO NETLIFY
+.formsButton{
+    background:$bgPage;
+    width: 200px;
+    border-color: black;
+    color:white;
+    font-size: 1.3rem ;
+
+    /* SE VA A HACER UNA REFERENCIA A LA 
+    CLASE PRINCIPAL EN ESTA PSEUDO CLASE
+    DE SELECTOR */
+
+    &:hover{
+        background:$bgPageInf;
+    }
+}

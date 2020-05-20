@@ -1,11 +1,16 @@
+/* SE ESPECIFICA QUE SE USE UNA DEPENDENCIA DE SASS */
+
+
 @use "sass:color";
+
+// VARIABLES PARA ALMACENAR LAS FUENTES DEL SITIO
 
 $font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 $font-family-serif: "Georgia", "Times New Roman", serif;
 
-$uoc-corporate: #000078;
-// $uoc-masterbrand: #501318;
-// $bg: color.scale($uoc-masterbrand, $lightness: 70%);
+
+/* DECLARACIÓN DE VARIABLES QUE CONTIENEN COLORES IMPORTANTES DEL SITIO */
+
 
 $bgHeader: linear-gradient(to bottom, rgb(114, 63, 110) 0%, rgb(241, 135, 13) 68%, rgb(99, 3, 67) 100%);
 
@@ -19,6 +24,9 @@ $bgMenuSel: linear-gradient(to bottom, rgb(109, 24, 134) 0%, rgb(88, 7, 112) 60%
 
 $bgFooter:linear-gradient(to bottom, rgb(118, 17, 138) 0%, rgb(70, 10, 82) 58%, rgb(41, 7, 48) 100%);
 
+
+/* UNA VEZ QUE SE HAN AGRAGADO LAS DEPENDENCIAS DE BOOTSTRAP EN NUESTRO PROYECTO
+SE PUEDEN CONTROLAR LAS CARACTERISTICAS DE LOS TEMAS */
 $theme-colors: (
  "primary": rgb(134, 21, 209) 
 )
