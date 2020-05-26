@@ -1,7 +1,10 @@
-/* SE ESPECIFICA QUE SE USE UNA DEPENDENCIA DE SASS */
+/* SE ESPECIFICA QUE SE USEN DEPENDENCIAS DE SASS */
 
 
 @use "sass:color";
+@use "sass:meta";
+@use "sass:string";
+@use "sass:list";
 
 // VARIABLES PARA ALMACENAR LAS FUENTES DEL SITIO
 
@@ -30,3 +33,5 @@ SE PUEDEN CONTROLAR LAS CARACTERISTICAS DE LOS TEMAS */
 $theme-colors: (
  "primary": rgb(134, 21, 209) 
 )
+
+
